@@ -36,7 +36,7 @@ function filterGradeCSData(grade){
     //Takes the responses column teaches cs? and checks filters if no filter for schools selected show all schools.
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
     var responseToSurvey = csGradeLevel[i]['Teaches CS?'];
-    if (responseToSurvey === ''){
+    if (!responseToSurvey || responseToSurvey === 'Unknown'){
       notResponded++;
     }else if (responseToSurvey === 'Inconsistent'){
       inconsistentResponse++;
