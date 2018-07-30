@@ -3,6 +3,7 @@
      <title>CSforIowa</title>
      <meta name="viewport" content="width=device-width, initial-scale=1">
      <link rel="stylesheet" href="css/reset.css" />
+     <link rel="stylesheet" href="https://unpkg.com/dc@3/dc.min.css" />
      <link rel="stylesheet" href="css/style.css" />
      <link rel="stylesheet" href="css/index.css" />
 
@@ -68,25 +69,25 @@
       <article>
         <img src="images/iowa-map.png">
       </article>
-      <div class="form">
-      <form id="gradeLevels">
-        <label><input type="radio" name="grade" value="" id="allSchools">All</label>
-        <label><input type="radio" name="grade" value="e" id="elementary">Elementary Schools</label>
-        <label><input type="radio" name="grade" value="m" id="middleSchools">Middle Schools</label>
-        <label><input type="radio" name="grade" value="h" id="highSchools">High Schools</label>
-      </form>
-      </div>
-      <div>
-        <canvas id="doughnut-chartIndex" width="800" height="250"></canvas>
-      </div>
     </div>
+    <section>
+      <div id="gradeBands">
+        <h3>Schools</h3>
+      </div>
+      <div id="csResponses">
+        <h3>School Offers Computer Science?</h3>
+      </div>
+    </section>
+    <section>
+      <table id="districts"></table>
+    </section>
     <footer>
-        &copy; 2018 Barkley, Cashmann, Robinson &amp; Van Meter
+        &copy; 2018 NewBoCo
     </footer>
    
-     <script src="js/lib/chart.bundle.js"></script>
-     <script src="js/lib/papaparse.js"></script>
-     <script src="js/importData.js"></script>
-     <script src="js/indexPage.js"></script>
+    <script src="https://unpkg.com/d3@5/dist/d3.js"></script>
+    <script src="https://unpkg.com/crossfilter2@1.4/crossfilter.js"></script>
+    <script src="https://unpkg.com/dc@3/dc.js"></script>
+    <script src="js/viz.js"></script>
   </body>
 </html>
