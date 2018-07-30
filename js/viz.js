@@ -4,8 +4,6 @@ var dims;
 var groups;
 
 (function(d3, crossfilter, dc) {
-  dc.config.defaultColors(['#f6921e', '#bb555c', '#56000a', '#fdc998']);
-
   var charts = {
     gradeBands: dc.rowChart('#gradeBands'),
     csResponses: dc.pieChart('#csResponses'),
@@ -70,23 +68,21 @@ var groups;
       csResponses: dims.csResponses.group().reduceCount()
     };
 
+    var gradeBandsOrder = ['High','Middle','Elementary'];
     charts.gradeBands
       .ordinalColors(['#000', '#333', '#666'])
       .elasticX(true)
       .dimension(dims.gradeBands)
       .group(groups.gradeBands)
-      .ordering(function (d) {
-        switch (d.key[0]) {
-        case 'H': return 0;
-        case 'M': return 1;
-        case 'E': return 2;
-        }
-      })
+      .ordering(function (d) { return gradeBandsOrder.indexOf(d.key); })
     ;
 
+    var csResponsesOrder = ['Yes', 'No', 'Inconsistent', 'Unknown'];
     charts.csResponses
+      .ordinalColors(['#f6921e', '#56000a', '#fdc998', '#bb555c'])
       .dimension(dims.csResponses)
       .group(groups.csResponses)
+      .ordering(function (d) { return csResponsesOrder.indexOf(d.key); })
     ;
 
     charts.table
