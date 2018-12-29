@@ -96,15 +96,6 @@ var groups;
           format: dc.pluck('key')
         },
         {
-          label: 'Population',
-          format: function (g) {
-            var pop = g.value.reduce(function (sum, school) {
-              return sum + school.population;
-            }, 0);
-            return d3.format(',')(pop);
-          }
-        },
-        {
           label: 'School Responses',
           format: function (g) {
             var responses = g.value.filter(function (s) {
