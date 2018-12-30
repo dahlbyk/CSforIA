@@ -115,6 +115,33 @@ var groups;
         }
       ])
       .order(d3.ascending.bind(null))
+      .renderlet(function(chart){
+        var good = "#04ad88";
+        var bad = d3.hsl(good);
+        bad.l /= 2;
+        var color = d3.scaleLinear()
+          .domain([0,1])
+          .range(['#999', good]);
+        chart.selectAll('tr.dc-table-row')
+          .style('background-color', function(g) { 
+            if(!g.value.length)
+              return null;
+            console.log(g);
+            var yes = g.value.filter(function (s) {
+              return s.csResponse === 'Yes';
+            });
+
+            var responded = g.value.filter(function (s) {
+              return s.csResponse !== 'Unknown';
+            });
+
+            var yesColor = d3.rgb(color(yes.length / g.value.length));
+            yesColor.opacity = responded.length ? (
+              responded.length === g.value.length ? 1 : 0.5
+              ) : 0;
+            return yesColor;
+         })
+      })
     ;
 
     dc.renderAll();
