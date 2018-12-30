@@ -55,3 +55,22 @@ body {
 .markup {
   padding-top: 10px;
 }
+
+table{
+  margin: 0 auto;
+  font-size: 1vw;
+  text-align: center;
+  width: 80%;
+}
+
+th{
+  font-weight: bolder;
+  font-size: 3vh;
+}
+
+td, th{
+  padding: 10px;
+  border: solid rgb(86,0,10);
+  box-sizing: border-box;
+  text-align: center;
+}
