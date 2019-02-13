@@ -116,12 +116,12 @@ var groups;
       ])
       .order(d3.ascending.bind(null))
       .renderlet(function(chart){
-        var good = "#04ad88";
+        var good = "#00aeef";
         var bad = d3.hsl(good);
-        bad.l /= 2;
+        bad.l *= 2;
         var color = d3.scaleLinear()
           .domain([0,1])
-          .range(['#999', good]);
+          .range([bad, good]);
         chart.selectAll('tr.dc-table-row')
           .style('background-color', function(g) { 
             if(!g.value.length)
@@ -135,9 +135,11 @@ var groups;
               return s.csResponse !== 'Unknown';
             });
 
-            var yesColor = d3.rgb(color(yes.length / g.value.length));
-            yesColor.opacity = responded.length ? (
-              responded.length === g.value.length ? 1 : 0.5
+            var l = responded.length;
+            var o = yes.length;
+            var yesColor = d3.rgb(color(l / g.value.length));
+            yesColor.opacity = o ? (
+              o === g.value.length ? 1 : 0.5
               ) : 0;
             return yesColor;
          })
