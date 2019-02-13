@@ -83,3 +83,11 @@ td, th{
 g.SchoolName path {
   stroke: #870d17;
 }
+g.SchoolName.selected path {
+  stroke: #870d17;
+  stroke-width: 2px;
+}
+g.SchoolName.deselected path {
+  stroke: #870d17;
+  fill: white;
+}
