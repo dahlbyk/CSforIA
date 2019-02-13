@@ -31,8 +31,30 @@ var districtShapes;
     if (!gradeBands.length || !+school.Students)
       return;
 
+    function normalizeDistrict(district){
+      switch (district) {
+        case 'A-H-S-T COMM SCHOOL DISTRICT':
+        case 'WALNUT COMM SCHOOL DISTRICT':
+          return 'AHSTW COMM SCHOOL DISTRICT';
+        case 'COLO-NESCO SCHOOL COMM SCHOOL DISTRICT':
+          return 'COLO-NESCO COMM SCHOOL DISTRICT';
+        case 'EDDYVILLE-BLAKESBURG- FREMONT CSD':
+          return 'EDDYVILLE-BLAKESBURG-FREMONT CSD';
+        case 'ELK HORN-KIMBALLTON COMM SCHOOL DISTRICT':
+        case 'EXIRA-ELK HORN-KIMBALLTON COMM SCHOOL DISTRICT':
+          return 'EXIRA-ELK HORN-KIMBALLTON COMM SCH DIST';
+        case 'GARNER-HAYFIELD COMM SCHOOL DISTRICT':
+        case 'VENTURA COMM SCHOOL DISTRICT':
+          return 'GARNER-HAYFIELD-VENTURA COMM SCHOOL DISTRICT';
+        case 'SOUTH TAMA COUNTY COMM SCHOOL DISTRICT':
+          return 'SOUTH TAMA COUNTY';
+        default:
+          return district;
+      }
+    }
+
     return {
-      district: school['School District Name'],
+      district: normalizeDistrict(school['School District Name']),
       school: school['School Name'],
       population: +school.Students,
       gradeBands: gradeBands,
@@ -146,11 +168,10 @@ var districtShapes;
         return d ? districtColor(d.count, d.responses, d.cs) : '#ccc';
       })
       .overlayGeoJson(geojson.features, 'SchoolName', function (d) {
-        return d.properties.SchoolName.toUpperCase();
+        return d.properties.SchoolName.replace(/([ -]) +/g, '$1').toUpperCase();
       })
       .projection(projection)
       .valueAccessor(function(kv) {
-        console.log(kv);
         return kv.value;
       })
       .title(function (d) {
@@ -193,7 +214,7 @@ var districtShapes;
           .style('background-color', function(g) { 
             if(!g.value.length)
               return null;
-            console.log(g);
+
             var yes = g.value.filter(function (s) {
               return s.csResponse === 'Yes';
             });
