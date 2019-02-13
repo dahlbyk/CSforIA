@@ -14,18 +14,24 @@ body {
   margin: 0 auto;
   width: 50%;
   }
-  .iowa {
-    width: 100%; 
-    clear: both;
+  .iowa .dc-chart {
+    float: none;
+    margin: auto;
+    display: block;
+  }
+
+  header, article, section{
+    max-width: 990px;
+    margin: 0 auto 2em;
     overflow: hidden;
   }
-  .iowa article {
+
+  section .dc-chart {
     width: 50%;
-    float: left;
-    padding-left: 20px;
     box-sizing: border-box;
   }
-  .iowa img {
+
+  #districts {
     width: 100%;
   }
 
@@ -38,6 +44,8 @@ body {
   h3 {
     font-family: 'Oswald', sans-serif;
     color:#870d17;
+    text-align: center;
+    padding: 1em;
   }
 
   .form {

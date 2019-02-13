@@ -141,6 +141,7 @@ var districtShapes;
 
     var gradeBandsOrder = ['High','Middle','Elementary'];
     charts.gradeBands
+      .height(300)
       .ordinalColors(['#000', '#333', '#666'])
       .elasticX(true)
       .dimension(dims.gradeBands)
@@ -150,10 +151,12 @@ var districtShapes;
 
     var csResponsesOrder = ['Yes', 'No', 'Inconsistent', 'Unknown'];
     charts.csResponses
+      .height(300)
       .ordinalColors(['#00aeef', '#ffffff', '#c0c0c0', '#808080'])
       .dimension(dims.csResponses)
       .group(groups.csResponses)
       .ordering(function (d) { return csResponsesOrder.indexOf(d.key); })
+      .externalRadiusPadding(10)
     ;
 
     var geojson = topojson.feature(districts, districts.objects.IowaSchoolDistrictsFY18);
