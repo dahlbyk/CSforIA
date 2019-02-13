@@ -74,3 +74,8 @@ td, th{
   box-sizing: border-box;
   text-align: center;
 }
+
+#csResponses .pie-slice{
+  fill:#000000;
+  stroke: black;
+}

@@ -79,7 +79,7 @@ var groups;
 
     var csResponsesOrder = ['Yes', 'No', 'Inconsistent', 'Unknown'];
     charts.csResponses
-      .ordinalColors(['#f6921e', '#56000a', '#fdc998', '#bb555c'])
+      .ordinalColors(['#00aeef', '#ffffff', '#c0c0c0', '#808080'])
       .dimension(dims.csResponses)
       .group(groups.csResponses)
       .ordering(function (d) { return csResponsesOrder.indexOf(d.key); })
