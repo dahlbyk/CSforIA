@@ -14,7 +14,7 @@
     "eqeqeq": ["error", "always"],
     "no-console": "off",
     "no-undefined": "off",
-    "indent": ["error", 2],
+    "indent": ["error", 2, { "SwitchCase": 1 }],
     "quotes": ["warn", "single"],
     "no-multi-spaces": [
       "warn",

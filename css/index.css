@@ -14,18 +14,24 @@ body {
   margin: 0 auto;
   width: 50%;
   }
-  .iowa {
-    width: 100%; 
-    clear: both;
+  .iowa .dc-chart {
+    float: none;
+    margin: auto;
+    display: block;
+  }
+
+  header, article, section{
+    max-width: 990px;
+    margin: 0 auto 2em;
     overflow: hidden;
   }
-  .iowa article {
+
+  section .dc-chart {
     width: 50%;
-    float: left;
-    padding-left: 20px;
     box-sizing: border-box;
   }
-  .iowa img {
+
+  #districts {
     width: 100%;
   }
 
@@ -38,6 +44,8 @@ body {
   h3 {
     font-family: 'Oswald', sans-serif;
     color:#870d17;
+    text-align: center;
+    padding: 1em;
   }
 
   .form {
@@ -54,4 +62,40 @@ body {
 
 .markup {
   padding-top: 10px;
+}
+
+table{
+  margin: 0 auto;
+  font-size: 1vw;
+  text-align: center;
+  width: 80%;
+}
+
+th{
+  font-weight: bolder;
+  font-size: 3vh;
+}
+
+td, th{
+  padding: 10px;
+  border: solid rgb(86,0,10);
+  box-sizing: border-box;
+  text-align: center;
+}
+
+#csResponses .pie-slice{
+  fill:#000000;
+  stroke: black;
+}
+
+g.SchoolName path {
+  stroke: #870d17;
+}
+g.SchoolName.selected path {
+  stroke: #870d17;
+  stroke-width: 2px;
+}
+g.SchoolName.deselected path {
+  stroke: #870d17;
+  fill: white;
 }

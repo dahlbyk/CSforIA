@@ -11,6 +11,7 @@ header {
   color: #666;
   font-size: 1.1em;
   margin-left: 33%;
+  margin-top: 1em;
 }
 
 .forIowa {
@@ -85,12 +86,6 @@ footer {
 }
 
 
-section{
-  height: 225px;
-}
-section img{
-  float: right;
-}
 .bodyWrapper {
 
   height: 900px;
