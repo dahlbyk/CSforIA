@@ -1,5 +1,5 @@
 param($Path)
-$csv = Get-Content $Path | ConvertFrom-Csv -Delimiter "`t" | ConvertTo-Csv -NoTypeInformation
+$csv = Get-Content $Path | ConvertFrom-Csv -Delimiter "`t" | Sort-Object 'School District Name','School Name','Gradespan' | ConvertTo-Csv -NoTypeInformation
 $csvPath = Join-Path (Resolve-Path .) 'gradeLevelData.csv'
 
 # Out-File -Encoding UTF8 .\gradeLevelData.csv # Adds BOM :(
