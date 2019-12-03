@@ -7,7 +7,7 @@
 // Load data on window load
 function loadGradeLevelData() {
 
-  var csvUrl = 'data/gradeLevelData.csv';
+  var csvUrl = 'data/2018/gradeLevelData.csv';
  
   Papa.parse(csvUrl, {
 
