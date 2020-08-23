@@ -13,12 +13,12 @@ var districtShapes;
     table: dc.dataTable('#districts')
   };
 
-  d3.json('./data/districts.simple2.topo.json')
+  d3.json('./data/2018/districts.simple2.topo.json')
     .then(function (shapes) {
       districtShapes = shapes;
       if (schoolData) render(schoolData, districtShapes);
     });
-  d3.csv('./data/gradeLevelData.csv', function (school) {
+  d3.csv('./data/2018/gradeLevelData.csv', function (school) {
     var gradeBands = [];
 
     if (school['Stage El'] === '1')
